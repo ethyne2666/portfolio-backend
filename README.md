@@ -91,3 +91,36 @@ GlobalExceptionHandler.java — one central place that catches errors (like "pro
 }
 ```
 
+
+# labs
+
+**Postman**
+> http://localhost:8080/api/lab/postman/endpoints
+
+```
+{
+  "data": [
+    {
+      "id": "get-all-projects",
+      "method": "GET",
+      "path": "/api/projects",
+      "description": "Fetch all published portfolio projects"
+    },
+    {
+      "id": "get-all-snippets",
+      "method": "GET",
+      "path": "/api/snippets",
+      "description": "Fetch all code snippets"
+    },
+    {
+      "id": "get-current-now",
+      "method": "GET",
+      "path": "/api/now",
+      "description": "Fetch what I'm currently building/learning"
+    }
+  ],
+  "message": null,
+  "success": true
+}
+```
+

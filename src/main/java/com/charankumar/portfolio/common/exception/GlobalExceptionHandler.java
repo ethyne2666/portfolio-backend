@@ -45,4 +45,14 @@ public class GlobalExceptionHandler {
         body.put("errors", errors);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
     }
+
+
+    @ExceptionHandler(com.charankumar.portfolio.lab.jwtplayground.InvalidTokenException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidToken(
+            com.charankumar.portfolio.lab.jwtplayground.InvalidTokenException ex) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("success", false);
+        body.put("message", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(body);
+    }
 }
