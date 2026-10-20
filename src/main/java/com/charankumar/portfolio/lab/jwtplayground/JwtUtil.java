@@ -58,4 +58,17 @@ public class JwtUtil {
             return false; // expired, tampered with, or malformed
         }
     }
+
+
+
+    public String generateToken(String username, long ttlSeconds) {
+        Date now = new Date();
+        Date expiry = new Date(now.getTime() + ttlSeconds * 1000);
+        return Jwts.builder()
+                .subject(username)
+                .issuedAt(now)
+                .expiration(expiry)
+                .signWith(secretKey)
+                .compact();
+    }
 }
