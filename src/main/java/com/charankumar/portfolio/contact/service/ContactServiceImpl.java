@@ -16,10 +16,15 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void submitMessage(ContactRequestDto request) {
+        // Honeypot: a hidden field only bots fill in. Pretend success, store nothing.
+        if (request.website() != null && !request.website().isBlank()) {
+            return;
+        }
+
         ContactMessage message = new ContactMessage();
-        message.setName(request.getName());
-        message.setEmail(request.getEmail());
-        message.setMessage(request.getMessage());
+        message.setName(request.name().trim());
+        message.setEmail(request.email().trim());
+        message.setMessage(request.message().trim());
         contactMessageRepository.save(message);
     }
 }

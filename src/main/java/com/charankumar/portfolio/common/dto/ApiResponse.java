@@ -1,7 +1,6 @@
 package com.charankumar.portfolio.common.dto;
 
-// This wraps EVERY successful response in the same shape.
-// Frontend always gets: { success: true, data: {...}, message: null }
+// Every response from this API has the same shape: { success, data, message }
 public class ApiResponse<T> {
 
     private boolean success;
@@ -15,7 +14,13 @@ public class ApiResponse<T> {
         return response;
     }
 
-    // Getters only — the frontend just reads this, nothing writes to it after creation
+    public static <T> ApiResponse<T> error(String message) {
+        ApiResponse<T> response = new ApiResponse<>();
+        response.success = false;
+        response.message = message;
+        return response;
+    }
+
     public boolean isSuccess() { return success; }
     public T getData() { return data; }
     public String getMessage() { return message; }
