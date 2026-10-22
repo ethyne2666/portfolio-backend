@@ -1,3 +1,4 @@
+# Thi is Portfolio Backend
 
 Each of these is a feature module — a self-contained slice of your app that owns one piece of portfolio content. Instead of organizing by "type" (all controllers together, all entities together), you organize by "what it's about." This is called package-by-feature, and it's why each of these folders internally repeats the same controller/service/repository/entity/dto pattern.
 
